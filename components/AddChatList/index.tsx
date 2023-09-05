@@ -77,11 +77,9 @@ const AddChatList = ({ onCancel }: AddChatListProps) => {
         <div className="p-12 lg:px-8 md:pt-6 md:px-5 md:pb-6">
             <div className="mb-8 h4">Add chat list</div>
             <div className="relative z-10 flex mb-8 md:block">
-                <Field
+                <input
                     className="grow mr-3 md:mr-0 md:mb-3"
-                    label="Name"
                     placeholder="Name"
-                    icon="chat-1"
                     value={name}
                     onChange={(e: any) => setName(e.target.value)}
                     required 
