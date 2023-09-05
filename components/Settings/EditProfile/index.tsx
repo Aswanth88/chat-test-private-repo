@@ -66,8 +66,7 @@ const EditProfile = ({}: EditProfileProps) => {
                 icon="profile-1"
                 value={name}
                 onChange={(e: any) => setName(e.target.value)}
-                required
-            />
+                required name={""}            />
             <Field
                 className="mb-6"
                 label="Location"
@@ -75,8 +74,7 @@ const EditProfile = ({}: EditProfileProps) => {
                 icon="marker"
                 value={location}
                 onChange={(e: any) => setLocation(e.target.value)}
-                required
-            />
+                required name={""}            />
             <Field
                 className="mb-6"
                 label="Bio"
@@ -85,8 +83,7 @@ const EditProfile = ({}: EditProfileProps) => {
                 value={bio}
                 onChange={(e: any) => setBio(e.target.value)}
                 textarea
-                required
-            />
+                required name={""}            />
             <button className="btn-blue w-full">Save changes</button>
         </form>
     );
