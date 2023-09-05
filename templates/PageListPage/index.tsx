@@ -6,6 +6,14 @@ const items = [
         url: "/",
     },
     {
+        title: "Auth",
+        url: "/auth",
+    },
+    {
+        title: "Main",
+        url: "/Main",
+    },
+    {
         title: "Code generation",
         url: "/code-generation",
     },

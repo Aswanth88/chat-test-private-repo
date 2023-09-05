@@ -8,6 +8,8 @@ type FieldProps = {
     textarea?: boolean;
     note?: string;
     type?: string;
+    id?: string; 
+    name: string;
     value: string;
     onChange: any;
     placeholder?: string;
@@ -22,6 +24,8 @@ const Field = ({
     textarea,
     note,
     type,
+    id,
+    name,
     value,
     onChange,
     placeholder,
@@ -58,6 +62,8 @@ const Field = ({
                             } ${
                                 value !== "" && "bg-transparent border-n-3/50"
                             }`}
+                            id={id}
+                            name={name}
                             value={value}
                             onChange={onChange}
                             onKeyDown={handleKeyDown}

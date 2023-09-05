@@ -1,47 +1,67 @@
-import { useState } from "react";
-import Field from "@/components/Field";
+import React, { useState } from "react";
+import { useRouter } from "next/router";
+import { supabase } from "@/utils/supabase";
+import Link from "next/link";
 
-type SignInProps = {
-    onClick: () => void;
+
+const SignIn = () => {
+  const router = useRouter();
+
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (event: { target: { name: any; value: any; }; }) => {
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [event.target.name]: event.target.value,
+    }));
+  };
+
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
+    e.preventDefault();
+
+    try {
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: formData.email,
+        password: formData.password,
+      });
+
+      if (error) {
+        console.error("Sign-in error:", error.message);
+      } else {
+        router.push("/Main");
+      }
+    } catch (error) {
+      console.error("Network request error:", error);
+    }
+  };
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input
+          placeholder="Email"
+          name="email"
+          onChange={handleChange}
+          value={formData.email}
+          type="email"
+          required
+        />
+        <input
+          placeholder="Password"
+          name="password"
+          type="password"
+          onChange={handleChange}
+          value={formData.password}
+          required
+        />
+          <button className="btn-blue btn-large w-full" type="submit">
+        Sign in with OpenAgent
+      </button>
+    </form>
+    </div>
+  );
 };
-
-const SignIn = ({ onClick }: SignInProps) => {
-    const [name, setName] = useState<string>("");
-    const [password, setPassword] = useState<string>("");
-
-    return (
-        <form action="" onSubmit={() => console.log("Submit")}>
-            <Field
-                className="mb-4"
-                classInput="dark:bg-n-7 dark:border-n-7 dark:focus:bg-transparent"
-                placeholder="Username or email"
-                icon="email"
-                value={name}
-                onChange={(e: any) => setName(e.target.value)}
-                required
-            />
-            <Field
-                className="mb-2"
-                classInput="dark:bg-n-7 dark:border-n-7 dark:focus:bg-transparent"
-                placeholder="Password"
-                icon="lock"
-                type="password"
-                value={password}
-                onChange={(e: any) => setPassword(e.target.value)}
-                required
-            />
-            <button
-                className="mb-6 base2 text-primary-1 transition-colors hover:text-primary-1/90"
-                type="button"
-                onClick={onClick}
-            >
-                Forgot password?
-            </button>
-            <button className="btn-blue btn-large w-full" type="submit">
-                Sign in with OpenAgent
-            </button>
-        </form>
-    );
-};
-
 export default SignIn;

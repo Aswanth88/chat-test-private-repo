@@ -1,13 +1,25 @@
 import { useState } from "react";
 import Message from "@/components/Message";
 import Menu from "@/components/Menu";
-
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { supabase } from '@/utils/supabase';
 import { navigation } from "@/constants/navigation";
 
-type MainProps = {};
 
-const Main = ({}: MainProps) => {
-    const [message, setMessage] = useState<string>("");
+const Main = () => {
+    const router = useRouter();
+  
+    useEffect(() => {
+        const checkUser = async () => {
+          const userResponse = await supabase.auth.getUser();
+          if (userResponse) {
+            router.push('/sign-in'); // Redirect non-authenticated users to the sign-in page
+          }
+        };
+  
+      checkUser();
+    }, [router]);
 
     return (
         <>
@@ -23,10 +35,7 @@ const Main = ({}: MainProps) => {
                 </div>
                 <Menu className="max-w-[30.75rem] mx-auto" items={navigation} />
             </div>
-            <Message
-                value={message}
-                onChange={(e: any) => setMessage(e.target.value)}
-            />
+        
         </>
     );
 };
