@@ -54,8 +54,7 @@ const ModalShareChat = ({ visible, onClose }: ModalShareChatProps) => {
                         placeholder="Link"
                         value={link}
                         onChange={(e: any) => setLink(e.target.value)}
-                        required
-                    />
+                        required name={""}                    />
                     <CopyToClipboard text={link} onCopy={onCopy}>
                         <button
                             className="btn-dark absolute top-1 right-1"
