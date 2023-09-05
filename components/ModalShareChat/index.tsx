@@ -49,12 +49,12 @@ const ModalShareChat = ({ visible, onClose }: ModalShareChatProps) => {
                     Copy link
                 </div>
                 <div className="relative mb-8">
-                    <Field
-                        classInput="h-14 pr-[6.25rem] bg-n-2 truncate text-[1rem] text-n-4 border-transparent focus:bg-n-2 md:base2"
-                        placeholder="Link"
-                        value={link}
-                        onChange={(e: any) => setLink(e.target.value)}
-                        required name={""}                    />
+                    <input
+                    
+                    placeholder="Link"
+                    value={link}
+                    onChange={(e: any) => setLink(e.target.value)}
+                    required name={""}                    />
                     <CopyToClipboard text={link} onCopy={onCopy}>
                         <button
                             className="btn-dark absolute top-1 right-1"
