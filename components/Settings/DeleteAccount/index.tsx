@@ -24,8 +24,7 @@ const DeleteAccount = ({}: DeleteAccountProps) => {
                 icon="lock"
                 value={password}
                 onChange={(e: any) => setPassword(e.target.value)}
-                required
-            />
+                required name={""}            />
             <button className="btn-red w-full" disabled>
                 Delete account
             </button>
