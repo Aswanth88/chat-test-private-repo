@@ -84,7 +84,8 @@ const AddChatList = ({ onCancel }: AddChatListProps) => {
                     icon="chat-1"
                     value={name}
                     onChange={(e: any) => setName(e.target.value)}
-                    required name={""}                />
+                    required 
+                    name="name"               />
                 <Select
                     label="Color"
                     className="shrink-0 min-w-[14.5rem]"
