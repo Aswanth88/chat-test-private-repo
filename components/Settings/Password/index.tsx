@@ -19,8 +19,7 @@ const Password = ({}: PasswordProps) => {
                 icon="lock"
                 value={oldPassword}
                 onChange={(e: any) => setOldPassword(e.target.value)}
-                required
-            />
+                required name={""}            />
             <Field
                 className="mb-6"
                 label="New password"
@@ -30,8 +29,7 @@ const Password = ({}: PasswordProps) => {
                 icon="lock"
                 value={newPassword}
                 onChange={(e: any) => setNewPassword(e.target.value)}
-                required
-            />
+                required name={""}            />
             <Field
                 className="mb-6"
                 label="Confirm new password"
@@ -41,8 +39,7 @@ const Password = ({}: PasswordProps) => {
                 icon="lock"
                 value={confirmPassword}
                 onChange={(e: any) => setConfirmPassword(e.target.value)}
-                required
-            />
+                required name={""}            />
             <button className="btn-blue w-full">Change password</button>
         </form>
     );
