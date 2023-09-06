@@ -13,7 +13,7 @@ export async function signInWithGoogle(router) {
       console.error("Sign-in error:", error.message);
     } else {
       // Handle successful sign-in
-      router.push('/Main'); // Redirect to the Main page after successful sign-in
+      router.push('/Home'); // Redirect to the Main page after successful sign-in
     }
   } catch (e) {
     console.error("Error during sign-in:", e.message);
@@ -29,7 +29,7 @@ export async function signInWithGitHub(router) {
       console.error("Sign-in error:", error.message);
     } else {
       // Handle successful sign-in
-      router.push('/Main'); // Redirect to the Main page after successful sign-in
+      router.push('Home'); // Redirect to the Main page after successful sign-in
     }
   } catch (e) {
     console.error("Error during sign-in:", e.message);
