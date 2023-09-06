@@ -4,10 +4,12 @@ const nextConfig = {
     supabase: {
       client: {
         auth: {
-          persistSession: false // or true
-        }
-      }
-    }
+          persistSession: false, // or true
+        },
+        SUPABASE_URL: process.env.SUPABASE_URL, // Add this line
+        SUPABASE_KEY: process.env.SUPABASE_KEY, // Add this line
+      },
+    },
   },
   webpack(config) {
     config.module.rules.push({
@@ -15,7 +17,8 @@ const nextConfig = {
       type: 'asset/resource',
     });
     return config;
-  }
+  },
 };
 
 module.exports = nextConfig;
+
