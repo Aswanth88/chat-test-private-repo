@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 import type { NextPage } from "next";
 import SignInPage from "@/templates/SignInPage";
 
