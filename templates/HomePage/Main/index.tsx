@@ -14,7 +14,7 @@ const Main = () => {
         const checkUser = async () => {
           const userResponse = await supabase.auth.getUser();
           if (!userResponse) {
-            router.push('/sign-in'); // Redirect non-authenticated users to the sign-in page
+            router.push('/'); // Redirect non-authenticated users to the sign-in page
           }
         };
   
