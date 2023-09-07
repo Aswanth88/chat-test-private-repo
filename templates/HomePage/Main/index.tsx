@@ -16,6 +16,9 @@ const Main = () => {
           if (userResponse) {
             router.push('/Home'); 
           }
+          else {
+            router.push('/'); 
+          }              
         };
   
       checkUser();
