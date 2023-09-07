@@ -31,7 +31,7 @@ const SignIn = () => {
       if (error) {
         console.error("Sign-in error:", error.message);
       } else {
-        router.push("/Main");
+        router.push("/Home");
       }
     } catch (error) {
       console.error("Network request error:", error);
