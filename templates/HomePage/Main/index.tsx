@@ -8,19 +8,16 @@ import { navigation } from "@/constants/navigation";
 
 
 const Main = () => {
-    const router = useRouter();
-  
-    useEffect(() => {
-        const checkUser = async () => {
-          const userResponse = await supabase.auth.getUser();
-          if (userResponse) {
-            router.push('/Home'); 
-          }
-          else {
-            router.push('/'); 
-          }              
-        };
-  
+  const router = useRouter();
+
+  useEffect(() => {
+    const checkUser = async () => {
+      const userResponse = await supabase.auth.getUser();
+      if (!userResponse) {
+        // User is not authenticated, redirect to the sign-in page
+        router.push('/');
+      }
+    };
       checkUser();
     }, [router]);
 
