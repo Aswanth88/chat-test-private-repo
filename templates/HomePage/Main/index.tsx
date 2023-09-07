@@ -13,7 +13,7 @@ const Main = () => {
     useEffect(() => {
         const checkUser = async () => {
           const userResponse = await supabase.auth.getUser();
-          if (userResponse) {
+          if (!userResponse) {
             router.push('/sign-in'); // Redirect non-authenticated users to the sign-in page
           }
         };
